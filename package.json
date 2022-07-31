@@ -2,7 +2,7 @@
   "name": "https-server-kyropol",
   "version": "1.0.0",
   "description": "API for study process ",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "type": "module",
   "scripts": {
     "start": "node ./dist/index.js",
