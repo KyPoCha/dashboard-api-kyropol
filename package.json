@@ -9,6 +9,7 @@
     "lint": "eslint ./src/**",
     "lint:fix": "eslint ./src/** --fix",
     "dev": "nodemon",
+    "dev:inspect": "nodemon -e ts,json --exec node --inspect=localhost:9229 -r ts-node/register src/main.ts",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
