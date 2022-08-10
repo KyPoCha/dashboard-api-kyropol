@@ -12,6 +12,7 @@ import {json} from "body-parser";
 import {IUsersController} from "./users/users.controller.interface";
 import {IConfigService} from "./config/config.service.interface";
 import {IExceptionFilter} from "./errors/exception.filter.interface";
+import {PrismaService} from "./database/prisma.service";
 
 @injectable()
 export class App {
@@ -27,6 +28,7 @@ export class App {
 		@inject(TYPES.UsersController) private userController: UsersController,
 		@inject(TYPES.ExceptionFilter) private exceptionFilter: IExceptionFilter,
 		@inject(TYPES.ConfigService) private configService: IConfigService,
+		@inject(TYPES.PrismaService) private prismaService: PrismaService
 	) {
 		this.app = express();
 		this.port = 8000;
@@ -51,6 +53,7 @@ export class App {
 		this.useMiddleware();
 		this.useRoutes();
 		this.useExceptionsFilters();
+		await this.prismaService.connect();
 		this.server = this.app.listen(this.port);
 		this.logger.log(`Server is loaded on http://localhost:${this.port}`);
 	}

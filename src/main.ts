@@ -12,6 +12,7 @@ import {IUserService} from "./users/users.service.interface";
 import {UsersService} from "./users/users.service";
 import {IConfigService} from "./config/config.service.interface";
 import {ConfigService} from "./config/config.service";
+import {PrismaService} from "./database/prisma.service";
 
 //async function bootstrap(){
 /*const logger = new LoggerService();
@@ -32,6 +33,7 @@ export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
 	bind<IExceptionFilter>(TYPES.ExceptionFilter).to(ExceptionFilter);
 	bind<IUsersController>(TYPES.UsersController).to(UsersController);
 	bind<IUserService>(TYPES.UsersService).to(UsersService);
+	bind<PrismaService>(TYPES.PrismaService).to(PrismaService);
 	bind<IConfigService>(TYPES.ConfigService).to(ConfigService).inSingletonScope();
 	bind<App>(TYPES.Application).to(App);
 });
