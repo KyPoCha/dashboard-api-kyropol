@@ -13,6 +13,8 @@ import {UsersService} from "./users/users.service";
 import {IConfigService} from "./config/config.service.interface";
 import {ConfigService} from "./config/config.service";
 import {PrismaService} from "./database/prisma.service";
+import {UsersRepository} from "./users/users.repository";
+import { IUsersRepository } from './users/users.repository.interface';
 
 //async function bootstrap(){
 /*const logger = new LoggerService();
@@ -34,6 +36,7 @@ export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
 	bind<IUsersController>(TYPES.UsersController).to(UsersController);
 	bind<IUserService>(TYPES.UsersService).to(UsersService);
 	bind<PrismaService>(TYPES.PrismaService).to(PrismaService).inSingletonScope();
+	bind<IUsersRepository>(TYPES.UsersRepository).to(UsersRepository).inSingletonScope();
 	bind<IConfigService>(TYPES.ConfigService).to(ConfigService).inSingletonScope();
 	bind<App>(TYPES.Application).to(App);
 });
