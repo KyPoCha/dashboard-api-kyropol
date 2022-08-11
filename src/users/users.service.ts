@@ -24,13 +24,15 @@ export class UsersService implements IUserService{
         if(existedUser){
             return null;
         }
-        //check for validation?
-        // if exists - return null
-        // if doesn`t - create
         return this.usersRepository.create(newUser);
     }
 
-    async validateUser({}: UserLoginDto): Promise<boolean>{
-        return true;
+    async validateUser({email,password}: UserLoginDto): Promise<boolean>{
+        const existedUser = await this.usersRepository.find(email);
+        if(!existedUser){
+            return false;
+        }
+        const newUser = new User(existedUser.email, existedUser.name,existedUser.password);
+        return newUser.comparePassword(password);
     }
 }
