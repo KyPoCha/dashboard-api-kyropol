@@ -7,12 +7,12 @@
   "scripts": {
     "start": "node ./dist/main.js",
     "lint": "eslint ./src/**",
+    "test": "jest",
     "lint:fix": "eslint ./src/** --fix",
     "dev": "nodemon",
     "dev:inspect": "nodemon -e ts,json --exec node --inspect=localhost:9229 -r ts-node/register src/main.ts",
     "generate": "prisma generate",
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "Kyrylo Polishchuk",
