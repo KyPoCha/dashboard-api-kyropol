@@ -8,7 +8,7 @@
     "start": "node ./dist/main.js",
     "lint": "eslint ./src/**",
     "test": "jest",
-    "test:e2e": "jest --config jest.e2e.config.ts",
+    "test:e2e": "jest --config jest.e2e.config.ts --coverage",
     "lint:fix": "eslint ./src/** --fix",
     "dev": "nodemon",
     "dev:inspect": "nodemon -e ts,json --exec node --inspect=localhost:9229 -r ts-node/register src/main.ts",
